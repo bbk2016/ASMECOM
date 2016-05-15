@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2fb6554ae37146e7bece6840c3ed5499" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="ASMDBModel.Adress" Width="1.5" PointX="14.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.Customer" Width="1.5" PointX="12.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.PaymentType" Width="1.5" PointX="15.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.PaymentCustomer" Width="1.5" PointX="17.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.Order" Width="1.5" PointX="14.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.OrderDetail" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.Payment" Width="1.5" PointX="12.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.Shipper" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.Category" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.Product" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.ProductDetail" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.Supplier" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.Role" Width="1.5" PointX="7.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ASMDBModel.User" Width="1.5" PointX="10" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="ASMDBModel.FK__Adress__Customer__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.FK__Customer__UserID__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.FK__Order__CustomerI__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.Fk_PaymentCustomer_CustomerID" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.Fk_PaymentCustomer_PaymentTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.FK__Order__PaymentID__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.FK__Order__ShipperID__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.FK__OrderDeta__Order__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.FK__OrderDeta__Produ__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.FK__Product__Categor__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.FK__Product__Supplie__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.FK__ProductDe__Produ__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="ASMDBModel.UserInRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

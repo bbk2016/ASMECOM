@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>c9058e77-3940-4027-a844-b31d7e59b314</ProjectGuid>
+    <ProjectGuid>2fd386e5-377a-4480-b764-0f6fea6f5ce6</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ASM.MODEL</RootNamespace>
-    <AssemblyName>ASM.MODEL</AssemblyName>
+    <RootNamespace>ASM.Infrastructure.Logging</RootNamespace>
+    <AssemblyName>ASM.Infrastructure.Logging</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
