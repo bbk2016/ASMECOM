@@ -13,6 +13,7 @@ namespace ASM.Infrastructure.Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using ASM.Core.Model;
     
     public partial class ASMCONTEXT : DbContext
     {
