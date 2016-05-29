@@ -20,7 +20,8 @@ namespace ASM.Infrastructure.Services
         }
         public void CreateCustomer(Customer Customer)
         {
-            throw new NotImplementedException();
+            _unitOfWork.CustomerRepository.Add(Customer);
+            _unitOfWork.Save();
         }
 
         public void DeleteAuteur(int id)

@@ -14,6 +14,8 @@ namespace ASM.Infrastructure.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using ASM.Core.Model;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class ASMCONTEXT : DbContext
     {
@@ -41,5 +43,6 @@ namespace ASM.Infrastructure.Data
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
+      
     }
 }

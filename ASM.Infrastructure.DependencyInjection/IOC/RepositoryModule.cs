@@ -18,8 +18,9 @@ namespace ASM.Infrastructure.DependencyInjection.IOC
         public override void Load()
         {
             //TO do binding here
-            Bind<IUnitOfWork>().To<UnitOfWork>();
+            
             Bind<ICustomerRepository>().To<CustomerRepository>();
+            Bind<IAdressRepository>().To<AdressRepository>();
         }
 
     }

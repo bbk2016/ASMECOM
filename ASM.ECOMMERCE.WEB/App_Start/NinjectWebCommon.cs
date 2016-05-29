@@ -69,10 +69,10 @@ namespace ASM.ECOMMERCE.WEB.App_Start
                 {
                     new RepositoryModule(),
                     new ServicesModule(),
-                    new UnitOfWorkModule()
+                  new UnitOfWorkModule()
                 };
             kernel.Load(modules);
-            kernel.Bind<ILoggingService>().To<LoggingService>();
+            //kernel.Bind<ILoggingService>().To<LoggingService>();
         }        
     }
 }
