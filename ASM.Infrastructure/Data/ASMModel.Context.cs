@@ -43,6 +43,19 @@ namespace ASM.Infrastructure.Data
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
-      
+        public virtual DbSet<C_LoginView> C_LoginView { get; set; }
+    
+        public virtual ObjectResult<Login_Result> Login(string login, string password)
+        {
+            var loginParameter = login != null ?
+                new ObjectParameter("Login", login) :
+                new ObjectParameter("Login", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Login_Result>("Login", loginParameter, passwordParameter);
+        }
     }
 }
