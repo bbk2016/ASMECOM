@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace ASM.Infrastructure.Repository
 {
-    public class CustomerRepository: ASMGenericRepository<Customer>, ICustomerRepository
-        
+    public class CustomerRepository : GenericRepository<ASMCONTEXT, Customer>, ICustomerRepository
     {
-        public CustomerRepository(ASMCONTEXT context) :base(context)
+        public Customer GetSingle(int CustumerID)
         {
-
+            return GetById(CustumerID);
         }
     }
 }

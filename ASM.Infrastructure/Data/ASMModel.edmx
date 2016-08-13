@@ -204,19 +204,19 @@
           <Property Name="RoleID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'ASMDB.dbo._LoginView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="_LoginView">
+warning 6002: The table/view 'ASMDB.dbo.LoginView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LoginView">
           <Key>
+            <PropertyRef Name="UserID" />
             <PropertyRef Name="Login" />
             <PropertyRef Name="Password" />
             <PropertyRef Name="AdressMail" />
-            <PropertyRef Name="UserID" />
             <PropertyRef Name="Role" />
           </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="AdressMail" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK__Adress__Customer__2B3F6F97">
@@ -407,14 +407,14 @@ warning 6002: The table/view 'ASMDB.dbo._LoginView' does not have a primary key 
           <EntitySet Name="Role" EntityType="Self.Role" Schema="User" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="User" store:Type="Tables" />
           <EntitySet Name="UserInRole" EntityType="Self.UserInRole" Schema="User" store:Type="Tables" />
-          <EntitySet Name="_LoginView" EntityType="Self._LoginView" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="LoginView" EntityType="Self.LoginView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [_LoginView].[Login] AS [Login], 
-    [_LoginView].[Password] AS [Password], 
-    [_LoginView].[AdressMail] AS [AdressMail], 
-    [_LoginView].[UserID] AS [UserID], 
-    [_LoginView].[Role] AS [Role]
-    FROM [dbo].[_LoginView] AS [_LoginView]</DefiningQuery>
+    [LoginView].[UserID] AS [UserID], 
+    [LoginView].[Login] AS [Login], 
+    [LoginView].[Password] AS [Password], 
+    [LoginView].[AdressMail] AS [AdressMail], 
+    [LoginView].[Role] AS [Role]
+    FROM [dbo].[LoginView] AS [LoginView]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Adress__Customer__2B3F6F97" Association="Self.FK__Adress__Customer__2B3F6F97">
             <End Role="Customer" EntitySet="Customer" />
@@ -908,26 +908,12 @@ warning 6002: The table/view 'ASMDB.dbo._LoginView' does not have a primary key 
             <End Role="Role" EntitySet="Roles" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-          <EntitySet Name="C_LoginView" EntityType="ASMDBModel.C_LoginView" />
           <FunctionImport Name="Login" ReturnType="Collection(ASMDBModel.Login_Result)">
             <Parameter Name="Login" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="LoginViews" EntityType="ASMDBModel.LoginView" />
         </EntityContainer>
-        <EntityType Name="C_LoginView">
-          <Key>
-            <PropertyRef Name="Login" />
-            <PropertyRef Name="Password" />
-            <PropertyRef Name="AdressMail" />
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="Role" />
-          </Key>
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="AdressMail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <ComplexType Name="Login_Result">
           <Property Type="String" Name="Login" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
@@ -935,6 +921,20 @@ warning 6002: The table/view 'ASMDB.dbo._LoginView' does not have a primary key 
           <Property Type="Int32" Name="UserID" Nullable="false" />
           <Property Type="String" Name="Role" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <EntityType Name="LoginView">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Login" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="AdressMail" />
+            <PropertyRef Name="Role" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdressMail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1152,17 +1152,6 @@ warning 6002: The table/view 'ASMDB.dbo._LoginView' does not have a primary key 
               <ScalarProperty Name="UserID" ColumnName="UserID" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="C_LoginView">
-            <EntityTypeMapping TypeName="ASMDBModel.C_LoginView">
-              <MappingFragment StoreEntitySet="_LoginView">
-                <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="AdressMail" ColumnName="AdressMail" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="Login" FunctionName="ASMDBModel.Store.Login">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ASMDBModel.Login_Result">
@@ -1174,6 +1163,17 @@ warning 6002: The table/view 'ASMDB.dbo._LoginView' does not have a primary key 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="LoginViews">
+            <EntityTypeMapping TypeName="ASMDBModel.LoginView">
+              <MappingFragment StoreEntitySet="LoginView">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="AdressMail" ColumnName="AdressMail" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

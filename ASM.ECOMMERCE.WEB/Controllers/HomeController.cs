@@ -1,6 +1,7 @@
 ﻿using ASM.Core.Interfaces.IUnitOfWork;
 using ASM.Core.Interfaces.Services;
 using ASM.Core.Model;
+using ASM.Infrastructure.Data;
 using ASM.Infrastructure.Services;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace ASM.ECOMMERCE.WEB.Controllers
         private ICustomerServices _customerServices ;
         public HomeController()
         {
-
+          
         }
         public HomeController(ICustomerServices customerServices)
         {
@@ -25,14 +26,13 @@ namespace ASM.ECOMMERCE.WEB.Controllers
         }
         public ActionResult Index()
        {
-            Customer customer = new Customer();
-            customer.Firstname = "bilel";
-            customer.Lastname = "benkhalifa";
-            customer.Email = "benkh.bilel@hotmail.fr";
-           
-            _customerServices.CreateCustomer(customer);
-          var c =  _customerServices.GetCustomers();
-            return View();
+
+
+          var customers=  _customerServices.GetCustomers();
+
+
+
+            return View(customers);
         }
 
         public ActionResult About()

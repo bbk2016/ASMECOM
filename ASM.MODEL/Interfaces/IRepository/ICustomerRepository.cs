@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace ASM.Core.Interfaces.IRepository
 {
-   public  interface ICustomerRepository :IASMRepository<Customer>
+   public  interface ICustomerRepository : IASMRepository<Customer>
     {
+
+        Customer GetSingle(int CustumerID);
     }
+   
 }

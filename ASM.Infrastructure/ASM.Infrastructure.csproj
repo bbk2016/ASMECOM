@@ -63,8 +63,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AdressRepository.cs" />
-    <Compile Include="Repository\ASMGenericRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
+    <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Services\CustomerServices.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>

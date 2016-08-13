@@ -24,9 +24,11 @@ namespace ASM.Infrastructure.Services
             _unitOfWork.Save();
         }
 
-        public void DeleteAuteur(int id)
+        public void DeleteCustomer(int id)
         {
-            throw new NotImplementedException();
+        Customer customer=    _unitOfWork.CustomerRepository.GetById(id);
+            if (customer != null)
+                _unitOfWork.CustomerRepository.Delete(customer);
         }
 
         public Customer Find(int id)

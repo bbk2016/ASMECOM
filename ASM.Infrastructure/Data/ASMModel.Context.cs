@@ -16,7 +16,7 @@ namespace ASM.Infrastructure.Data
     using ASM.Core.Model;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    
+    using Core.Model.sp;
     public partial class ASMCONTEXT : DbContext
     {
         public ASMCONTEXT()
@@ -43,7 +43,7 @@ namespace ASM.Infrastructure.Data
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<C_LoginView> C_LoginView { get; set; }
+        public virtual DbSet<LoginView> LoginViews { get; set; }
     
         public virtual ObjectResult<Login_Result> Login(string login, string password)
         {

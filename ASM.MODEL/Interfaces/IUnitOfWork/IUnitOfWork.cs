@@ -10,7 +10,7 @@ namespace ASM.Core.Interfaces.IUnitOfWork
   public   interface IUnitOfWork
     {
         ICustomerRepository CustomerRepository { get; }
-
+        IAdressRepository AdressRepository { get; }
 
         void Save();
     }

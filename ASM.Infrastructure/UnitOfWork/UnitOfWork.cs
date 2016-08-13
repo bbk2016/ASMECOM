@@ -11,71 +11,43 @@ using ASM.Core.Interfaces.IRepository;
 
 namespace ASM.Infrastructure.UnitOfWorks
 {
-       public   class UnitOfWork:IDisposable,IUnitOfWork
+       public   class UnitOfWork:IUnitOfWork
     {
-         #region Attributes
-        private ASMCONTEXT context = new ASMCONTEXT();
 
-        public UnitOfWork(ASMCONTEXT context)
-        {
-            this.context = context;
-        }
-     
-        private ASMGenericRepository<Customer> customerRepository;
+        #region Attributes
+
+        public IAdressRepository AdressRepository { get; }
+        private ICustomerRepository CustmerRepository { get; }
+
+        #endregion
 
 
-        public ASMGenericRepository<Customer> CustomerRepository
+        
+
+        #region Methodes
+      
+
+        IAdressRepository IUnitOfWork.AdressRepository
         {
             get
             {
-
-                if (this.customerRepository == null)
-                {
-                    this.customerRepository = new ASMGenericRepository<Customer>(context);
-                }
-                return customerRepository;
+                return new AdressRepository();
             }
         }
 
-    
-
-
-
-
-        ICustomerRepository IUnitOfWork.CustomerRepository
+        public ICustomerRepository CustomerRepository
         {
-             get { return new CustomerRepository(context); }
+            get
+            {
+                return new CustomerRepository();
+            }
         }
-        #endregion
-
-   
-
 
         public void Save()
         {
-            context.SaveChanges();
+
         }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
+        #endregion
 
 
 
