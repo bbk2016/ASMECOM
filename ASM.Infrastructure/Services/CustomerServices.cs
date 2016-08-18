@@ -11,17 +11,33 @@ namespace ASM.Infrastructure.Services
 {
     public class CustomerServices : ICustomerServices
     {
+        #region Attributes
         private readonly IUnitOfWork _unitOfWork;
+        #endregion
 
-       
+
+        #region Ctor
         public CustomerServices(IUnitOfWork unitofwork)
         {
             this._unitOfWork = unitofwork;
         }
+        #endregion
+
+
+        #region Methodes
+
+
+      
         public void CreateCustomer(Customer Customer)
         {
             _unitOfWork.CustomerRepository.Add(Customer);
-            _unitOfWork.Save();
+           
+        }
+
+        public void DeleteAuteur(int id)
+        {
+            
+            
         }
 
         public void DeleteCustomer(int id)
@@ -48,12 +64,13 @@ namespace ASM.Infrastructure.Services
 
         public void SaveCustomer()
         {
-            throw new NotImplementedException();
+            _unitOfWork.CustomerRepository.Save();
         }
 
         public void UpdateCustomer(Customer Customer)
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }

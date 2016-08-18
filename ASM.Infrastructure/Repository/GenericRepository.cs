@@ -12,10 +12,16 @@ namespace ASM.Infrastructure.Repository
     {
         #region attributes
         private C _entities = new C();
+
         #endregion
 
 
         #region ctor
+
+        public GenericRepository(C c)
+        {
+            c = _entities;
+        }
         public C Context
         {
 
@@ -69,6 +75,11 @@ namespace ASM.Infrastructure.Repository
         public virtual IEnumerable<T> GetMany(Func<T, bool> where)
         {
             return _entities.Set<T>().Where(where).ToList();
+        }
+
+        public void Save()
+        {
+            _entities.SaveChanges();
         }
 
         public virtual void Update(T entity)

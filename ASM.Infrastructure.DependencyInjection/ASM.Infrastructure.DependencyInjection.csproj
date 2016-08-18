@@ -50,7 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="IOC\packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ASM.Infrastructure\ASM.Infrastructure.csproj">

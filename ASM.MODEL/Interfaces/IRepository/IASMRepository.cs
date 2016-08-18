@@ -20,6 +20,7 @@ namespace ASM.Core.Interfaces.IRepository
         IEnumerable<T> GetMany(Func<T, bool> where);
         IQueryable<T> Find(Func<T, bool> where);
 
+        void Save();
 
     }
 }

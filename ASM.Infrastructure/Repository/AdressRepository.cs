@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace ASM.Infrastructure.Repository
 {
-   public  class AdressRepository : GenericRepository<ASMCONTEXT,Adress>, IAdressRepository
+    public class AdressRepository : GenericRepository<ASMCONTEXT, Adress>, IAdressRepository
     {
-       
+
+        public AdressRepository(ASMCONTEXT contect):base(contect)
+        {
+
+        }
     }
 }

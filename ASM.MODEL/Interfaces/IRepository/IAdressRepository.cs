@@ -9,5 +9,6 @@ namespace ASM.Core.Interfaces.IRepository
 {
   public  interface IAdressRepository:IASMRepository<Adress>
     {
+        void Save();
     }
 }

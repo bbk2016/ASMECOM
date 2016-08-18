@@ -12,12 +12,16 @@ using ASM.Core.Interfaces.IRepository;
 namespace ASM.Infrastructure.UnitOfWorks
 {
        public   class UnitOfWork:IUnitOfWork
-    {
+     {
+
+       
+       
 
         #region Attributes
 
         public IAdressRepository AdressRepository { get; }
         private ICustomerRepository CustmerRepository { get; }
+        private ASMCONTEXT _context;
 
         #endregion
 
@@ -31,7 +35,7 @@ namespace ASM.Infrastructure.UnitOfWorks
         {
             get
             {
-                return new AdressRepository();
+                return new AdressRepository(_context);
             }
         }
 
@@ -39,14 +43,18 @@ namespace ASM.Infrastructure.UnitOfWorks
         {
             get
             {
-                return new CustomerRepository();
+                return new CustomerRepository(_context);
             }
         }
 
         public void Save()
         {
+            _context.SaveChanges();
+
 
         }
+
+
         #endregion
 
 
